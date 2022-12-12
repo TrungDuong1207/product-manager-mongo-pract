@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <title>Products</title>
+
+    <style>
+        .pagination a {
+
+            color: black;
+
+            float: left;
+
+            padding: 12px 18px;
+
+            text-decoration: none;
+
+        }
+
+        /* thiết lập style cho class active */
+
+        .pagination a.active {
+
+            background-color: dodgerblue;
+
+            color: white;
+
+            /*Thiết kế hình tròn với CSS*/
+
+            border-radius: 50%;
+
+        }
+
+        /* thêm màu nền khi người dùng hover vào class không active */
+
+        .pagination a:hover:not(.active) {
+
+            background-color: #ddd;
+
+            /*Thiết kế hình tròn với CSS*/
+
+            border-radius: 50%;
+
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <h2>List Products</h2>
+
+    <% for(const product of products) { %>
+
+        <h3>
+
+            Name: <%= product.name %>
+
+        </h3>
+
+        <p>
+
+            Price: <%= product.price %>
+
+        </p>
+
+        <p>
+
+            Producer: <%= product.producer %>
+
+        </p>
+
+        <p>
+
+            Avatar: <%= product.avatar %>
+
+        </p>
+
+        </br>
+
+        <% } %>
+
+            <div class="pagination">
+
+                <a href="#">«</a>
+                <% for(let i=0; i < Math.ceil(counts/3); i++){ %>
+                    <a href="http://localhost:3000/product/list?offset=<%=i%>&limit=3"><%=i+1%></a>
+
+                <% } %>
+                <a href="#">»</a>
+
+            </div>
+
+</body>
+
+
+
+</html>
